@@ -54,13 +54,13 @@ def main():
             shipreader = ship[:]
             shipreader.replace(" ", "+")
             shipreader.replace("/","*s")
-            omega1 = get_character_count("Omega+" + chars[0].replace(" ", "+"))
+            omega1 = get_character_count("Omega+" + chars[0].replace(" ", "+"),shipreader)
             print(f"Omega {chars[0]} = {omega1}")
-            omega2 = get_character_count("Omega+" + chars[1].replace(" ", "+"))
+            omega2 = get_character_count("Omega+" + chars[1].replace(" ", "+"),shipreader)
             print(f"Omega {chars[1]} = {omega2}")
-            alpha1 = get_character_count("Alpha+" + chars[0].replace(" ", "+"))
+            alpha1 = get_character_count("Alpha+" + chars[0].replace(" ", "+"),shipreader)
             print(f"Alpha {chars[0]} = {alpha1}")
-            alpha2 = get_character_count("Alpha+" + chars[1].replace(" ", "+"))
+            alpha2 = get_character_count("Alpha+" + chars[1].replace(" ", "+"),shipreader)
             print(f"Alpha {chars[1]} = {alpha2}")
             char1gender = ""
             char2gender = ""
