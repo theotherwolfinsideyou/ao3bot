@@ -48,7 +48,7 @@ def main():
     with open(INPUT_FILE, newline="", encoding="utf-8") as infile:
         reader = csv.DictReader(infile)
         for row in reader:
-            ships.append([row["char1"],row["char2"],row["ship"])
+            ships.append([row["char1"],row["char2"],row["ship"]])
         for ship in ships:
             omega1 = get_character_count(quote_plus("Omega " + ship[0]),quote_plus(ship[2]))
             time.sleep(5 + random.uniform(5, 10))
@@ -80,8 +80,8 @@ def main():
             if alpha2 > omega2:
                 char2gender = "Alpha"
                 char2percent = round(alpha2 / char2total,2) * 100
-            percentages[ship] = [char1gender, char1percent,char2gender,char2percent]
-            print(f"{ship},{char1gender},{char1percent},{char2gender},{char2percent}")
+            percentages[ship[2]] = [char1gender, char1percent,char2gender,char2percent]
+            print(f"{ship[2]},{char1gender},{char1percent},{char2gender},{char2percent}")
             
         with open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as file_output:
             writer = csv.writer(file_output)
