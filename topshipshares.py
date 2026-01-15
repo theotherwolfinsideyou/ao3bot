@@ -29,7 +29,6 @@ def get_character_count(char,ship):
     if not heading:
         raise ValueError("Could not find works heading")
 
-    # Example text: "Works (5,956)"
     text = heading.get_text(strip=True)
     split_up = text.split(" ")
     count = 0
@@ -72,13 +71,13 @@ def main():
             char2percent = 0.0
             if omega1 > alpha1:
                 char1gender = "Omega"
-                char1percent = round(omega1 / ships[ship],2) * 100
+                char1percent = round(omega1 / omega1 + alpha1,2) * 100
             if alpha1 > omega1:
                 char1gender = "Alpha"
-                char1percent = round(alpha1 / ships[ship],2) * 100
+                char1percent = round(alpha1 / omega1 + alpha1,2) * 100
             if omega2 > alpha2:
                 char2gender = "Omega"
-                char2percent = round(omega2 / ships[ship],2) * 100
+                char2percent = round(omega2 / omega1 + alpha1,2) * 100
             if alpha2 > omega2:
                 char2gender = "Alpha"
                 char2percent = round(alpha2 / ships[ship],2) * 100
