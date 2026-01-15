@@ -72,10 +72,10 @@ def main():
             if alpha1 > omega1:
                 char1gender = "Alpha"
                 char1percent = round(alpha1 / ships[ship],2) * 100
-            if omega1 > alpha1:
+            if omega2 > alpha2:
                 char2gender = "Omega"
                 char2percent = round(omega2 / ships[ship],2) * 100
-            if alpha1 > omega1:
+            if alpha2 > omega2:
                 char2gender = "Alpha"
                 char2percent = round(alpha2 / ships[ship],2) * 100
             percentages[ship] = [char1gender, char1percent,char2gender,char2percent]
