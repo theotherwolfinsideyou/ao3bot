@@ -50,7 +50,7 @@ def main():
             ships.append(row["ship"])
         for ship in ships:
             chars = ship.split('/')
-            shipreader = ship.replace(" ", "+").replace("/", "*s")
+            shipreader = ship.replace(" ", "+").replace("/", "*s*")
             omega1 = get_character_count("Omega+" + chars[0].replace(" ", "+"),shipreader)
             time.sleep(5 + random.uniform(5, 10))
             print(f"Omega {chars[0]} = {omega1}")
