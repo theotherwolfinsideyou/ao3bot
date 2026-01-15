@@ -47,7 +47,7 @@ def main():
     with open(INPUT_FILE, newline="", encoding="utf-8") as infile:
         reader = csv.DictReader(infile)
         for row in reader:
-            ships.append([row["char1"],row["char2"])
+            ships.append([row["char1"],row["char2"]])
         for ship in ships:
             omega1 = get_character_count("Omega+" + ship[0].replace(" ", "+"),shipreader)
             time.sleep(5 + random.uniform(5, 10))
