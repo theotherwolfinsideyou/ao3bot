@@ -50,9 +50,7 @@ def main():
             ships.append(row["ship"])
         for ship in ships:
             chars = ship.split('/')
-            shipreader = ship[:]
-            shipreader.replace(" ", "+")
-            shipreader.replace("/","*s")
+            shipreader = ship.replace(" ", "+").replace("/", "*s")
             omega1 = get_character_count("Omega+" + chars[0].replace(" ", "+"),shipreader)
             time.sleep(5 + random.uniform(5, 10))
             print(f"Omega {chars[0]} = {omega1}")
@@ -89,8 +87,8 @@ def main():
         with open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as file_output:
             writer = csv.writer(file_output)
             writer.writerow(["ship","char1gender","char1percent","char2gender","char2percent"])
-            for ship, values in ships.items():
-                writer.writerow([name, *values])        
+            for ship, values in percentages.items():
+                writer.writerow([ship, *values])        
 
 
 if __name__ == "__main__":
