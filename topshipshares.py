@@ -9,7 +9,7 @@ HEADERS = {
     "User-Agent": "AO3OmegaverseStatsBot (personal, non-commercial, NOT for ai purposes)"
 }
 
-INPUT_FILE = "shipsformatted2.csv"
+INPUT_FILE = "shipsformatted.csv"
 OUTPUT_FILE = "topshipssorted.csv"
 DELAY_SECONDS = 5
 
