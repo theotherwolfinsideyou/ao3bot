@@ -52,16 +52,16 @@ def main():
         for ship in ships:
             omega1 = get_character_count(quote_plus("Omega " + ship[0]),quote_plus(ship[2]))
             time.sleep(5 + random.uniform(5, 10))
-            print(f"Omega {chars[0]} = {omega1}")
+            print(f"Omega {ship[0]} = {omega1}")
             omega2 = get_character_count(quote_plus("Omega " + ship[1]),quote_plus(ship[2]))
             time.sleep(5 + random.uniform(5, 10))
-            print(f"Omega {chars[1]} = {omega2}")
+            print(f"Omega {ship[1]} = {omega2}")
             alpha1 = get_character_count(quote_plus("Alpha " + ship[0]),quote_plus(ship[2]))
             time.sleep(5 + random.uniform(5, 10))
-            print(f"Alpha {chars[0]} = {alpha1}")
+            print(f"Alpha {ship[0]} = {alpha1}")
             alpha2 = get_character_count(quote_plus("Alpha " + ship[1]),quote_plus(ship[2]))
             time.sleep(5 + random.uniform(5, 10))
-            print(f"Alpha {chars[1]} = {alpha2}")
+            print(f"Alpha {ship[1]} = {alpha2}")
             char1gender = ""
             char2gender = ""
             char1percent = 0.0
