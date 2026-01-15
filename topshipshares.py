@@ -47,20 +47,18 @@ def main():
     with open(INPUT_FILE, newline="", encoding="utf-8") as infile:
         reader = csv.DictReader(infile)
         for row in reader:
-            ships.append(row["ship"])
+            ships.append([row["char1"],row["char2"])
         for ship in ships:
-            chars = ship.split('/')
-            shipreader = ship.replace(" ", "+").replace("/", "*s*")
-            omega1 = get_character_count("Omega+" + chars[0].replace(" ", "+"),shipreader)
+            omega1 = get_character_count("Omega+" + ship[0].replace(" ", "+"),shipreader)
             time.sleep(5 + random.uniform(5, 10))
             print(f"Omega {chars[0]} = {omega1}")
-            omega2 = get_character_count("Omega+" + chars[1].replace(" ", "+"),shipreader)
+            omega2 = get_character_count("Omega+" + ship[1].replace(" ", "+"),shipreader)
             time.sleep(5 + random.uniform(5, 10))
             print(f"Omega {chars[1]} = {omega2}")
-            alpha1 = get_character_count("Alpha+" + chars[0].replace(" ", "+"),shipreader)
+            alpha1 = get_character_count("Alpha+" + ship[0].replace(" ", "+"),shipreader)
             time.sleep(5 + random.uniform(5, 10))
             print(f"Alpha {chars[0]} = {alpha1}")
-            alpha2 = get_character_count("Alpha+" + chars[1].replace(" ", "+"),shipreader)
+            alpha2 = get_character_count("Alpha+" + ship[1].replace(" ", "+"),shipreader)
             time.sleep(5 + random.uniform(5, 10))
             print(f"Alpha {chars[1]} = {alpha2}")
             char1gender = ""
