@@ -8,15 +8,15 @@ HEADERS = {
     "User-Agent": "AO3OmegaverseStatsBot (personal, non-commercial, NOT for ai purposes)"
 }
 
-INPUT_FILE = "topships.csv"
+INPUT_FILE = "Downloads/topships.csv"
 OUTPUT_FILE = "topshipssorted.csv"
 DELAY_SECONDS = 5
 
 ships = {}
 percentages = {}
 
-def get_character_count(tag_slug):
-    url = f"https://archiveofourown.org/tags/{tag_slug}/works"
+def get_character_count(char,ship):
+    url = f"https://archiveofourown.org/works?commit=Sort+and+Filter&work_search%5Bsort_column%5D=revised_at&work_search%5Bother_tag_names%5D={char}&work_search%5Bexcluded_tag_names%5D=&work_search%5Bcrossover%5D=&work_search%5Bcomplete%5D=&work_search%5Bwords_from%5D=&work_search%5Bwords_to%5D=&work_search%5Bdate_from%5D=&work_search%5Bdate_to%5D=&work_search%5Bquery%5D=&work_search%5Blanguage_id%5D=&tag_id={ship}"
 
     response = requests.get(url, headers=HEADERS)
     response.raise_for_status()
@@ -48,18 +48,19 @@ def main():
     with open(INPUT_FILE, newline="", encoding="utf-8") as infile:
         reader = csv.DictReader(infile)
         for row in reader:
-            ships[row["ship"]] = [
-                int(row["amount"]),
-            ]  
+            ships[row["ship"]] = int(row["amount"])
         for ship in ships:
             chars = ship.split('/')
-            omega1 = get_character_count("Omega%20" + chars[0].replace(" ", "%20"))
+            shipreader = ship[:]
+            shipreader.replace(" ", "+")
+            shipreader.replace("/","*s")
+            omega1 = get_character_count("Omega+" + chars[0].replace(" ", "+"))
             print(f"Omega {chars[0]} = {omega1}")
-            omega2 = get_character_count("Omega%20" + chars[1].replace(" ", "%20"))
+            omega2 = get_character_count("Omega+" + chars[1].replace(" ", "+"))
             print(f"Omega {chars[1]} = {omega2}")
-            alpha1 = get_character_count("Alpha%20" + chars[0].replace(" ", "%20"))
+            alpha1 = get_character_count("Alpha+" + chars[0].replace(" ", "+"))
             print(f"Alpha {chars[0]} = {alpha1}")
-            alpha2 = get_character_count("Alpha%20" + chars[1].replace(" ", "%20"))
+            alpha2 = get_character_count("Alpha+" + chars[1].replace(" ", "+"))
             print(f"Alpha {chars[1]} = {alpha2}")
             char1gender = ""
             char2gender = ""
