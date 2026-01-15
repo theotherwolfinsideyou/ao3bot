@@ -1,6 +1,7 @@
 import requests
 import random
 import time
+from urllib.parse import quote_plus
 from bs4 import BeautifulSoup
 import csv
 
@@ -47,18 +48,18 @@ def main():
     with open(INPUT_FILE, newline="", encoding="utf-8") as infile:
         reader = csv.DictReader(infile)
         for row in reader:
-            ships.append([row["char1"],row["char2"]])
+            ships.append([row["char1"],row["char2"],row["ship"])
         for ship in ships:
-            omega1 = get_character_count("Omega+" + ship[0].replace(" ", "+"),shipreader)
+            omega1 = get_character_count(quote_plus("Omega " + ship[0]),quote_plus(ship[2]))
             time.sleep(5 + random.uniform(5, 10))
             print(f"Omega {chars[0]} = {omega1}")
-            omega2 = get_character_count("Omega+" + ship[1].replace(" ", "+"),shipreader)
+            omega2 = get_character_count(quote_plus("Omega " + ship[1]),quote_plus(ship[2]))
             time.sleep(5 + random.uniform(5, 10))
             print(f"Omega {chars[1]} = {omega2}")
-            alpha1 = get_character_count("Alpha+" + ship[0].replace(" ", "+"),shipreader)
+            alpha1 = get_character_count(quote_plus("Alpha " + ship[0]),quote_plus(ship[2]))
             time.sleep(5 + random.uniform(5, 10))
             print(f"Alpha {chars[0]} = {alpha1}")
-            alpha2 = get_character_count("Alpha+" + ship[1].replace(" ", "+"),shipreader)
+            alpha2 = get_character_count(quote_plus("Alpha " + ship[1]),quote_plus(ship[2]))
             time.sleep(5 + random.uniform(5, 10))
             print(f"Alpha {chars[1]} = {alpha2}")
             char1gender = ""
