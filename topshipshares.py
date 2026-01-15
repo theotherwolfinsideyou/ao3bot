@@ -12,7 +12,7 @@ INPUT_FILE = "topships.csv"
 OUTPUT_FILE = "topshipssorted.csv"
 DELAY_SECONDS = 5
 
-ships = {}
+ships = []
 percentages = {}
 
 def get_character_count(char,ship):
@@ -47,7 +47,7 @@ def main():
     with open(INPUT_FILE, newline="", encoding="utf-8") as infile:
         reader = csv.DictReader(infile)
         for row in reader:
-            ships[row["ship"]] = int(row["amount"])
+            ships.append(row["ship"])
         for ship in ships:
             chars = ship.split('/')
             shipreader = ship[:]
