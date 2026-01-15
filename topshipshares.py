@@ -69,18 +69,20 @@ def main():
             char2gender = ""
             char1percent = 0.0
             char2percent = 0.0
+            char1total = omega1 + alpha1
+            char2total = omega2 + alpha2
             if omega1 > alpha1:
                 char1gender = "Omega"
-                char1percent = round(omega1 / omega1 + alpha1,2) * 100
+                char1percent = round(omega1 / char1total,2) * 100
             if alpha1 > omega1:
                 char1gender = "Alpha"
-                char1percent = round(alpha1 / omega1 + alpha1,2) * 100
+                char1percent = round(alpha1 / char1total,2) * 100
             if omega2 > alpha2:
                 char2gender = "Omega"
-                char2percent = round(omega2 / omega2 + alpha2,2) * 100
+                char2percent = round(omega2 / char2total,2) * 100
             if alpha2 > omega2:
                 char2gender = "Alpha"
-                char2percent = round(alpha2 / omega2 + alpha2,2) * 100
+                char2percent = round(alpha2 / char2total,2) * 100
             percentages[ship] = [char1gender, char1percent,char2gender,char2percent]
             print(f"{ship},{char1gender},{char1percent},{char2gender},{char2percent}")
             
